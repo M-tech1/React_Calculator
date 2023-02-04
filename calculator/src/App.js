@@ -2,7 +2,6 @@ import {useState} from 'react';
 
 
 
-
 function App() {
 const[calc, setCalc] = useState("");
 const[result, setReult] = useState("");
@@ -12,7 +11,7 @@ const ops = ['/', '*', '+','-','.'];
 const updateCalc = value => {
 
 if(
-  ops.includes(value) && calc === "" ||
+  ops.includes(value) && calc === '' ||
   ops.includes(value) && ops.includes(calc.slice(-1))
 )
 {return;}
@@ -51,14 +50,15 @@ setCalc(value);
 
   return (
     <div className="App">
-      < div className="calculator">
+      <div className="calculator">
         <div className="display">
-         {result ? <spam>{result}</spam> : ''}
+         {/* {result ? <spam>{result}</spam> : ''} */}
+         {result ? <spam></spam> : ''}
          &nbsp;
           { calc || "0" }
         </div>
 
-         <div className="operator">
+         <div className="operators">
              <button onClick={()=> updateCalc('/')}>
              /</button>
              <button onClick={() =>updateCalc('*')}>
@@ -67,13 +67,16 @@ setCalc(value);
              +</button>
              <button onClick={()=> updateCalc('-')}>
              -</button>
+             <button id="del" onClick={deletelast}>DEL</button>
 
-             <button onClick={deletelast}>DEL</button>
+
+             {/* <button id="clear" onClick={deletelast}>C</button>  */}
          </div>
             <div className="digits">
               {createDigits()}
               <button onClick={()=> updateCalc('0')}>0</button>
               <button onClick={()=> updateCalc('.')}>.</button>
+              {/* <button onClick={()=> updateCalc('.')}>C</button> */}
               <button onClick={calculate}>=</button>
             </div>
       </div>

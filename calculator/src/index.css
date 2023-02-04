@@ -1,20 +1,6 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
 :root{
-  --primary: #d8d8d8;
-  --secondary: #8c38ff;
+  --primary: #e1edbd;
+  --secondary: #86c9ff;
   --dark:#131a26;
   --light: #eee;
 }
@@ -41,14 +27,16 @@ body{
 .calculator{
   width: 100%;
   max-width: 400px;
-  background-color: #fff;
-  border-radius: 16px;
+  background-color: #8cc1dc;
+  border-radius: 10px;
   overflow:hidden;
   box-shadow: 0px 2px 64px rgba(0, 0, 0, 2);
   
 }
+
 .display{
 padding: 16px;
+margin: 10px;
 text-align: right;
 background-color: var(--dark);
 color: var(--light);;
@@ -64,9 +52,12 @@ font-weight:300;
 
 button{
   appearance: none;
-  border: none;
+  border: 20px;
+  margin: 2px;
+  /* border: solid; */
+  padding: 20px;
   outline: none;
-  color:#fff;
+  color:#0a0303;
   font-size: 20px;
   padding: 16px;
   cursor:pointer;
@@ -75,17 +66,18 @@ button{
 }
 
 button:hover{
-  opacity: 0.9;
-
+  opacity: 0.5;
+color: rgb(0, 255, 42);
 }
 
 .operators{
-  display: flex;
+  display:flex;
 }
 
 .operators button{
-  flex:1 1 0%;
-  background-color: var(--primary);
+  flex: 1 1 10%;
+  background-color:aqua;
+  /* background-color:#d1d27e; */
   font-weight: 700;
 }
 
@@ -95,8 +87,17 @@ button:hover{
 }
 
 .digits button{
-  flex: 1 1 33.333%;
+  flex: 1 1 30.333%;
   max-width:33.333%;
-  background-color: var(--dark)
+  /* background-color: var(--dark) */
+  background-color:#eeeee4;
+  font-weight: 700;
+}
 
+#clear{
+  background-color: rgb(239, 21, 21);
+}
+
+#del{
+  background-color: rgb(239, 21, 21);
 }
