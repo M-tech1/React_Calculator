@@ -2,31 +2,31 @@ import {useState} from 'react';
 
 
 
-function App() {
-const[calc, setCalc] = useState("");
-const[result, setReult] = useState("");
+function Application() {
+const[calc, set_Calc] = useState("");
+const[result, set_Reult] = useState("");
 
-const ops = ['/', '*', '+','-','.'];
+const operator = ['/', '*', '+','-','.'];
 
-const updateCalc = value => {
+const update_Calc = value => {
 
 if(
-  ops.includes(value) && calc === '' ||
-  ops.includes(value) && ops.includes(calc.slice(-1))
+  operator.includes(value) && calc === '' ||
+  operator.includes(value) && operator.includes(calc.slice(-1))
 )
 {return;}
 
-setCalc(calc + value); 
-if(!ops.includes(value)){
-  setReult(eval(calc + value).toString());
+set_Calc(calc + value); 
+if(!operator.includes(value)){
+  set_Reult(eval(calc + value).toString());
 }
 }
 
-const createDigits =() => {
+const create_Digits =() => {
   const digits=[];
   for(let i=1; i<10; i++){
      digits.push(
-      <button onClick={()=> updateCalc(i.toString()
+      <button onClick={()=> update_Calc(i.toString()
       )} key={i}>{i}
       </button>
      )  
@@ -36,15 +36,15 @@ return digits;
 
 
 const calculate =() =>{
-  setCalc(eval(calc).toString());
+  set_Calc(eval(calc).toString());
 }
 
 
-const deletelast =() => {
-if(calc==''){return}
+const delete_last =() => {
+if(calc===''){return}
 
 const value = calc.slice(0, -1);
-setCalc(value); 
+set_Calc(value); 
 
 }
 
@@ -59,23 +59,23 @@ setCalc(value);
         </div>
 
          <div className="operators">
-             <button onClick={()=> updateCalc('/')}>
+             <button onClick={()=> update_Calc('/')}>
              /</button>
-             <button onClick={() =>updateCalc('*')}>
+             <button onClick={() =>update_Calc('*')}>
              *</button>
-             <button onClick={()=> updateCalc('+')}>
+             <button onClick={()=> update_Calc('+')}>
              +</button>
-             <button onClick={()=> updateCalc('-')}>
+             <button onClick={()=> update_Calc('-')}>
              -</button>
-             <button id="del" onClick={deletelast}>DEL</button>
+             <button id="del" onClick={delete_last}>DEL</button>
 
 
              {/* <button id="clear" onClick={deletelast}>C</button>  */}
          </div>
             <div className="digits">
-              {createDigits()}
-              <button onClick={()=> updateCalc('0')}>0</button>
-              <button onClick={()=> updateCalc('.')}>.</button>
+              {create_Digits()}
+              <button onClick={()=> update_Calc('0')}>0</button>
+              <button onClick={()=> update_Calc('.')}>.</button>
               {/* <button onClick={()=> updateCalc('.')}>C</button> */}
               <button onClick={calculate}>=</button>
             </div>
@@ -84,4 +84,4 @@ setCalc(value);
   );
 }
 
-export default App;
+export default Application;
